@@ -1,5 +1,5 @@
 from persistence.NeoGraph import graph
-from util.file_utils import read_file_names_from_directory
+from util.file_utils import read_file_names_from_directory_filtered_by_suffix
 
 
 def build_query_for(file_name, uri):
@@ -15,7 +15,7 @@ def build_query_for(file_name, uri):
 
 
 def import_nodes_from_csv_files(csv_node_path):
-    file_names = read_file_names_from_directory(csv_node_path)
+    file_names = read_file_names_from_directory_filtered_by_suffix(csv_node_path, ".csv")
 
     for file_name in file_names:
         url = "file://" + csv_node_path + file_name

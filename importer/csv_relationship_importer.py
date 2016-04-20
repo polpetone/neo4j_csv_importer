@@ -1,4 +1,4 @@
-from util.file_utils import read_file_names_from_directory
+from util.file_utils import read_file_names_from_directory_filtered_by_suffix
 from persistence.NeoGraph import graph
 from persistence.GraphManager import create_relationship
 from persistence.GraphManager import find_node
@@ -15,7 +15,7 @@ def load_rows(uri):
 
 def import_relationships_from_csv_files(csv_relationship_path):
 
-    file_names = read_file_names_from_directory(csv_relationship_path)
+    file_names = read_file_names_from_directory_filtered_by_suffix(csv_relationship_path, ".csv")
 
     for file_name in file_names:
 
