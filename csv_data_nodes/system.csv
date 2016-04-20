@@ -1,0 +1,20 @@
+name,long_name, description
+minkki,Minkki, Reco to Print
+lizzard,Bestellzentrale, Sammelbestellung Programm
+cheetah,Cheetah, Front End System Telefonische Auftragserfassung
+order_service,Order Service, Service für Bestellungen
+article_service,Article Service, Service für Artikelsuche
+customer_service,Customer Service, Service für Kundenpflege
+controldata,Controldata Service, Halde für Steuerdaten
+credit_card_service, Credit Card Service
+assignment_service,Assignment Service, Service für die Verwaltung von Weiterleitungen von Cheetah
+pusher,Pusher Notification Service, Service für CTI und Informationslieferant für die aktuell eingeloggten Agenten von Cheetah
+event_tracker,Event Tracker, Service zum Tracken von Events
+analytics_service,Analytics Service, Service zum Sammeln von Analytics Daten aus Cheetah wird durch den Eventtracker abgelöst
+zebra,Zebra,Service zum Bereistellen von Zusatzartikelempfehlungen
+zebra_monitor,Zebra Monitor, ...
+my_account,Mein Konto, ...
+pdc,Product Data Cache,Bereitstellung von Artikelinformationen
+cc4_agent_manager, CC4.1 Agent Manager, Übersicht aller eingeloggten Agenten
+order_care_service, Order Care Service, Service für Bestellungspflege
+dragonfly,Dragonfly,Service für Bereitstellung von Produkt Bilder URIs

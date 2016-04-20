@@ -1,0 +1,14 @@
+name,address,description
+kmocc4tap01,192.168.120.7,TestSystem CC4.1
+kmocc4tdb01, 192.168.120.8,Testsystem Datenbank
+kmocc4pap01,192.168.120,10,Schulungssystem CC4.1
+cc4papp01,192.168.120.25,Frontend Node 1
+cc4papp02,192.168.120.26,Frontend Node 2
+cc4ser01,192.168.120.12,Service Node 1
+cc4ser02,192.168.120.29,Service Node 2
+cc4db01,192.168.120.11,DB Node 1
+cc4db02,192.168.120.27,DB Node 2
+cc4lb01,192.168.120.28,Loadbalancer
+kmocc4lap01,192.168.120.14,Frontend Fallback System
+kmocc4lap01_clone,192.168.120.22,Service and DB System
+kmocc4lap01_clone_clone,192.168.120.24,Staging System

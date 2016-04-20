@@ -1,0 +1,4 @@
+name, description
+cc41_replic, Datenbank für Artikeldaten von CC4.1
+cc41_persistence, Persistenz für CC 4.1. Derzeit für Analytics und Event Daten verwendet
+analytics_db, Datenbank für Analytics von CC 4.1 Fallbacksystem
