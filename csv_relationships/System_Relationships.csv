@@ -1,3 +1,0 @@
-source.name,source.label,relationship,destination.name,destination.label
-cheetah,system,DEPENDS_ON,order_service,system
-cheetah,system,DEPENDS_ON,customer_service,system

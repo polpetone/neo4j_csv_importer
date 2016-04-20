@@ -1,8 +1,0 @@
-name,long_name, description
-cc41_production, CC41 Produktionssystem
-cc41_staging, CC41 Staging System
-cc41_fallback, CC41 Fallbacksystem based on websphere
-cc41_test, CC41 Test Sytem
-
-
-

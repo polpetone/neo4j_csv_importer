@@ -1,4 +1,0 @@
-source.name,source.label,relationship,destination.name,destination.label
-cheetah,system,USE,db2,technology
-pusher,system,USE,websockets,technology
-cheetah,system,DEPENDS_ON,pusher,system
