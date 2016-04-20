@@ -1,29 +1,26 @@
-from util.file_utils import read_files_from_directory
+from util.file_utils import read_file_names_from_directory
 from persistence.NeoGraph import graph
-from persistence.GraphManager import relation
+from persistence.GraphManager import create_relationship
 from persistence.GraphManager import find_node
 
 
-data_path = data_path = "/home/icke/workspace/neo_importer/csv_data_relationships/"
-data_url = "file://" + data_path
-
-
-def load_rows(url):
+def load_rows(uri):
     load_query = """
-        LOAD CSV WITH HEADERS FROM " """+url+""" " AS row
+        LOAD CSV WITH HEADERS FROM " """ + uri + """ " AS row
         RETURN row
     """
     rows = graph.cypher.execute(load_query)
     return rows
 
 
-def create_relationships():
+def import_relationships_from_csv_files(csv_relationship_path):
 
-    files = read_files_from_directory(data_path)
+    file_names = read_file_names_from_directory(csv_relationship_path)
 
-    for file in files:
+    for file_name in file_names:
 
-        relationships = load_rows(data_url+file)
+        uri = "file://" + csv_relationship_path + file_name
+        relationships = load_rows(uri)
 
         for relationship in relationships:
             source_name = relationship.row["source.name"]
@@ -37,7 +34,7 @@ def create_relationships():
             source_node = find_node(source_label, source_name)
             destination_node = find_node(destination_label, destination_name)
 
-            relation(source_node, relationship_type, destination_node)
+            create_relationship(source_node, relationship_type, destination_node)
 
 
 
