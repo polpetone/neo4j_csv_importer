@@ -1,3 +1,4 @@
+from util.file_utils import read_files_from_directory
 from persistence.NeoGraph import graph
 from persistence.GraphManager import relation
 from persistence.GraphManager import find_node
@@ -18,21 +19,25 @@ def load_rows(url):
 
 def create_relationships():
 
-    relationships = load_rows(data_url+"Relationships.csv")
+    files = read_files_from_directory(data_path)
 
-    for relationship in relationships:
-        source_name = relationship.row["source.name"]
-        source_label = relationship.row["source.label"]
+    for file in files:
 
-        destination_name = relationship.row["destination.name"]
-        destination_label = relationship.row["destination.label"]
+        relationships = load_rows(data_url+file)
 
-        relationship_type = relationship.row["relationship"]
+        for relationship in relationships:
+            source_name = relationship.row["source.name"]
+            source_label = relationship.row["source.label"]
 
-        source_node = find_node(source_label, source_name)
-        destination_node = find_node(destination_label, destination_name)
+            destination_name = relationship.row["destination.name"]
+            destination_label = relationship.row["destination.label"]
 
-        relation(source_node, relationship_type, destination_node)
+            relationship_type = relationship.row["relationship"]
+
+            source_node = find_node(source_label, source_name)
+            destination_node = find_node(destination_label, destination_name)
+
+            relation(source_node, relationship_type, destination_node)
 
 
 
