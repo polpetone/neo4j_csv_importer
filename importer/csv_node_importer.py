@@ -1,5 +1,6 @@
 from persistence.NeoGraph import graph
 from util.file_utils import read_file_names_from_directory_filtered_by_suffix
+from logger.logger import logger
 
 
 def build_query_for(file_name, uri):
@@ -11,6 +12,9 @@ def build_query_for(file_name, uri):
     CREATE (n:""" + label + """ )
     SET n = row
     """
+
+    logger.debug(query)
+
     return query
 
 
