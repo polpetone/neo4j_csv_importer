@@ -2,6 +2,7 @@ from util.file_utils import read_file_names_from_directory_filtered_by_suffix
 from persistence.NeoGraph import graph
 from persistence.GraphManager import create_relationship
 from persistence.GraphManager import find_node
+from logger.logger import logger
 
 
 def load_rows(uri):
@@ -31,10 +32,13 @@ def import_relationships_from_csv_files(csv_relationship_path):
 
             relationship_type = relationship.row["relationship"]
 
-            source_node = find_node(source_label, source_name)
-            destination_node = find_node(destination_label, destination_name)
-
-            create_relationship(source_node, relationship_type, destination_node)
+            try:
+                source_node = find_node(source_label, source_name)
+                destination_node = find_node(destination_label, destination_name)
+                create_relationship(source_node, relationship_type, destination_node)
+            except AttributeError as attribute_error:
+                logger.warn("Could not create relationship for %s %s Error: %s",
+                            source_label, source_name, attribute_error)
 
     return file_names
 

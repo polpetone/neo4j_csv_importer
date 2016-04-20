@@ -1,6 +1,7 @@
 from persistence.NeoGraph import graph
 from util.file_utils import read_file_names_from_directory_filtered_by_suffix
 from logger.logger import logger
+import py2neo
 
 
 def build_query_for(file_name, uri):
@@ -18,13 +19,29 @@ def build_query_for(file_name, uri):
     return query
 
 
+def build_unique_constraint_query(file_name):
+
+    label = file_name.split('.')[0]
+
+    query = """
+        CREATE CONSTRAINT ON (n:"""+label+""") ASSERT n.name IS UNIQUE
+    """
+    return query
+
+
 def import_nodes_from_csv_files(csv_node_path):
     file_names = read_file_names_from_directory_filtered_by_suffix(csv_node_path, ".csv")
 
     for file_name in file_names:
         url = "file://" + csv_node_path + file_name
         query = build_query_for(file_name, url)
-        graph.cypher.execute(query)
+        unique_constraint_query = build_unique_constraint_query(file_name)
+        try:
+            graph.cypher.execute(unique_constraint_query)
+            graph.cypher.execute(query)
+        except py2neo.cypher.error.schema.ConstraintViolation as constraintViolation:
+            logger.error(constraintViolation)
+
     return file_names
 
 
