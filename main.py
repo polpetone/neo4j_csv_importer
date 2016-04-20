@@ -6,8 +6,11 @@ from argument_parser.argument_parser import read_data_path_arguments
 
 def import_csv_data(csv_node_path, csv_relationship_path):
     graph.delete_all()
-    import_nodes_from_csv_files(csv_node_path)
-    import_relationships_from_csv_files(csv_relationship_path)
+
+    node_files = import_nodes_from_csv_files(csv_node_path)
+    relationship_files = import_relationships_from_csv_files(csv_relationship_path)
+
+    return node_files, relationship_files
 
 
 if __name__ == '__main__':
@@ -16,5 +19,9 @@ if __name__ == '__main__':
     print("Import Nodes from ", node_path)
     print("Import Relationships from ", relationship_path)
 
-    import_csv_data(csv_node_path=node_path, csv_relationship_path=relationship_path)
+    imported_node_files, imported_relationship_files \
+        = import_csv_data(csv_node_path=node_path, csv_relationship_path=relationship_path)
+
+    print("Imported Node Files", imported_node_files)
+    print("Imported Relationship Files", imported_relationship_files)
 

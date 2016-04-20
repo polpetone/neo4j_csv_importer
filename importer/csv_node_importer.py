@@ -15,12 +15,12 @@ def build_query_for(file_name, uri):
 
 
 def import_nodes_from_csv_files(csv_node_path):
-    files = read_file_names_from_directory(csv_node_path)
+    file_names = read_file_names_from_directory(csv_node_path)
 
-    for file in files:
-        url = "file://" + csv_node_path + file
-        query = build_query_for(file, url)
+    for file_name in file_names:
+        url = "file://" + csv_node_path + file_name
+        query = build_query_for(file_name, url)
         graph.cypher.execute(query)
-
+    return file_names
 
 

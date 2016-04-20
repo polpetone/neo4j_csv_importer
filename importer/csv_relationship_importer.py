@@ -36,6 +36,8 @@ def import_relationships_from_csv_files(csv_relationship_path):
 
             create_relationship(source_node, relationship_type, destination_node)
 
+    return file_names
+
 
 
 
