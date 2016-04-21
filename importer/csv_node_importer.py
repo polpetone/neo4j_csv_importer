@@ -1,4 +1,4 @@
-from persistence.NeoGraph import graph
+from persistence.neo4j_graph import graph
 from util.file_utils import read_file_names_from_directory_filtered_by_suffix
 from logger.logger import logger
 import py2neo
@@ -9,7 +9,8 @@ def build_query_for(file_name, uri, separator):
     label = file_name.split('.')[0]
 
     query = """
-    LOAD CSV WITH HEADERS FROM " """ + uri + """ " AS row FIELDTERMINATOR '"""+separator+"""'
+    LOAD CSV WITH HEADERS FROM " """ + uri + """ " AS row
+    FIELDTERMINATOR '"""+separator+"""'
     CREATE (n:""" + label + """ )
     SET n = row
     """

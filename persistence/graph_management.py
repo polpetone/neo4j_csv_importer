@@ -1,4 +1,4 @@
-from persistence.NeoGraph import graph
+from persistence.neo4j_graph import graph
 from py2neo import Relationship
 
 

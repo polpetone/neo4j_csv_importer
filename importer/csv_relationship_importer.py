@@ -1,7 +1,7 @@
 from util.file_utils import read_file_names_from_directory_filtered_by_suffix
-from persistence.NeoGraph import graph
-from persistence.GraphManager import create_relationship
-from persistence.GraphManager import find_node
+from persistence.neo4j_graph import graph
+from persistence.graph_management import create_relationship
+from persistence.graph_management import find_node
 from logger.logger import logger
 
 
