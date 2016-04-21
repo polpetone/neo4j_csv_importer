@@ -4,12 +4,12 @@ from logger.logger import logger
 import py2neo
 
 
-def build_query_for(file_name, uri):
+def build_query_for(file_name, uri, separator):
 
     label = file_name.split('.')[0]
 
     query = """
-    LOAD CSV WITH HEADERS FROM " """ + uri + """ " AS row
+    LOAD CSV WITH HEADERS FROM " """ + uri + """ " AS row FIELDTERMINATOR '"""+separator+"""'
     CREATE (n:""" + label + """ )
     SET n = row
     """
@@ -29,12 +29,12 @@ def build_unique_constraint_query(file_name):
     return query
 
 
-def import_nodes_from_csv_files(csv_node_path):
+def import_nodes_from_csv_files(csv_node_path, separator=','):
     file_names = read_file_names_from_directory_filtered_by_suffix(csv_node_path, ".csv")
 
     for file_name in file_names:
         url = "file://" + csv_node_path + file_name
-        query = build_query_for(file_name, url)
+        query = build_query_for(file_name, url, separator)
         unique_constraint_query = build_unique_constraint_query(file_name)
         try:
             graph.cypher.execute(unique_constraint_query)
