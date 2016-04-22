@@ -12,6 +12,7 @@ class ConfigurationManager:
         self.parser.add_argument("csv_relationship_path")
         self.parser.add_argument("-s", action='store_true')
         self.parser.add_argument("-t", action='store_true')
+        self.parser.add_argument("-d", action='store_true')
         self.args = self.parser.parse_args()
 
     def read_data_path_arguments(self):
@@ -39,7 +40,8 @@ class ConfigurationManager:
         if self.args.t is False and self.args.s is True:
             return constants.SEMICOLON_SEPARATOR
 
-
+    def delete_database(self):
+        return self.args.d
 
 
 
