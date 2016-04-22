@@ -8,11 +8,11 @@ class ConfigurationManager:
 
     def __init__(self):
         self.parser = argparse.ArgumentParser()
-        self.parser.add_argument("csv_node_path")
-        self.parser.add_argument("csv_relationship_path")
-        self.parser.add_argument("-s", action='store_true')
-        self.parser.add_argument("-t", action='store_true')
-        self.parser.add_argument("-d", action='store_true')
+        self.parser.add_argument("csv_node_path", help="Absolute or relative path to directory with .csv files")
+        self.parser.add_argument("csv_relationship_path", help="Absolute or relative path to directory with .csv files")
+        self.parser.add_argument("-s", action='store_true', help="Sets Separator of node csv files to semicolon")
+        self.parser.add_argument("-t", action='store_true', help="Set Separator of node csv files to Tab")
+        self.parser.add_argument("-d", action='store_true', help="Drops complete Database before import")
         self.args = self.parser.parse_args()
 
     def read_data_path_arguments(self):

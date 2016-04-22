@@ -4,9 +4,6 @@
 
 Neo4j_csv_importer
 
-Attention:
-- going to delete all existent data in running neo4j instance
-
 Preconditions:
 - running neo4j on localhost
 - directory for node data: files has to have csv as suffix
