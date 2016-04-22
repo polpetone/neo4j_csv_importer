@@ -1,15 +1,6 @@
-         _          _            _             _          _          _            _            _             _
-        /\ \       /\ \         _\ \          /\ \       /\ \       /\ \         /\ \         /\ \     _    /\ \
-       /  \ \     /  \ \       /\__ \        /  \ \     /  \ \      \_\ \       /  \ \       /  \ \   /\_\ /  \ \
-      / /\ \ \   / /\ \ \     / /_ \_\      / /\ \ \   / /\ \ \     /\__ \     / /\ \ \     / /\ \ \_/ / // /\ \ \
-     / / /\ \_\ / / /\ \ \   / / /\/_/     / / /\ \_\ / / /\ \_\   / /_ \ \   / / /\ \ \   / / /\ \___/ // / /\ \_\
-    / / /_/ / // / /  \ \_\ / / /         / / /_/ / // /_/_ \/_/  / / /\ \ \ / / /  \ \_\ / / /  \/____// /_/_ \/_/
-   / / /__\/ // / /   / / // / /         / / /__\/ // /____/\    / / /  \/_// / /   / / // / /    / / // /____/\
-  / / /_____// / /   / / // / / ____    / / /_____// /\____\/   / / /      / / /   / / // / /    / / // /\____\/
- / / /      / / /___/ / // /_/_/ ___/\ / / /      / / /______  / / /      / / /___/ / // / /    / / // / /______
-/ / /      / / /____\/ //_______/\__\// / /      / / /_______\/_/ /      / / /____\/ // / /    / / // / /_______\
-\/_/       \/_________/ \_______\/    \/_/       \/__________/\_\/       \/_________/ \/_/     \/_/ \/__________/
-
+.---..----..-.   .---..---..---..----..-..-..---.
+| |-'| || || |__ | |-'| |- `| |'| || || .` || |-
+`-'  `----'`----'`-'  `---' `-' `----'`-'`-'`---'
 
 Neo4j_csv_importer
 
@@ -25,28 +16,37 @@ Preconditions:
 
 What it does:
 - imports data from csv files into a neo4j
-
+How:
 - one directory for nodes
 - one directory for relationships
+- filename is label name of node
+
+Import of Nodes:
+- header of csv file are node properties
+
+Import of Relationships
+- header must have following format: source.name,source.label,relationship,destination.name,destination.label
+- name and label must exist
+- relationship can be anything
+
 
 Options:
 - csv files for nodes can have three types of separators: semicolon, comma, tab
+- default is comma
 
 Usages:
 $ python 3 neo4j_csv_importer.py <node_dir> <relationship_dir>
 
-Where:
-<node_dir> is
-- absolute path to directory of csv files with nodes
-OR
-- relative path to directory of csv file with nodes
+    Where:
+    <node_dir>
+    /absolute/path/node_data
+    OR
+    relative/path/node_data
 
--filename is label name of node
-
-<relationship_dir> is
-- absolute path to directory of csv files with relationships
-OR
-- relative path to directory of csv files with relationships
+    <relationship_dir>
+    /absolute/path/relationship_data
+    OR
+    relative/path/relationship_data
 
 
 
