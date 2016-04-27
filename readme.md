@@ -4,7 +4,7 @@
 |   ___/  |  |  |  | |  |     |   ___/  |   __|      |  |    |  |  |  | |  . `  | |   __|
 |  |      |  `--'  | |  `----.|  |      |  |____     |  |    |  `--'  | |  |\   | |  |____
 | _|       \______/  |_______|| _|      |_______|    |__|     \______/  |__| \__| |_______|
-                                                                                                                                                                                            
+
 
 Neo4j_csv_importer
 
@@ -54,8 +54,8 @@ $ python neo4j_csv_importer.py <node_dir> <relationship_dir>
 
 Example:
 - there are a small sample set of csv data in test_data
--> python neo4j_csv_importer.py test_data/csv_nodes test_data/csv_relationships
-this will create a some city and person nodes and creates LIVE_IN relationship between them
+- python neo4j_csv_importer.py test_data/csv_nodes test_data/csv_relationships
+- this will create some city and person nodes and creates LIVE_IN relationship between them
 - open localhost:7474 (default config of neo4j) and watch the result
 
 
