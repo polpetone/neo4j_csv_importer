@@ -6,6 +6,7 @@ Neo4j_csv_importer
 
 Preconditions:
 - running neo4j on localhost
+	- no authentication supported yet
 - directory for node data: files has to have csv as suffix
 - directory for relationships: separator has to be a comma
 - python 3
@@ -25,6 +26,7 @@ Import of Relationships
 - header must have following format: source.name,source.label,relationship,destination.name,destination.label
 - name and label must exist
 - relationship can be anything
+- separator has to be a comma
 
 
 Options:
@@ -32,7 +34,7 @@ Options:
 - default is comma
 
 Usages:
-$ python 3 neo4j_csv_importer.py <node_dir> <relationship_dir>
+$ python neo4j_csv_importer.py <node_dir> <relationship_dir>
 
     Where:
     <node_dir>
