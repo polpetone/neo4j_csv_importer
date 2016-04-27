@@ -1,6 +1,10 @@
-.---..----..-.   .---..---..---..----..-..-..---.
-| |-'| || || |__ | |-'| |- `| |'| || || .` || |-
-`-'  `----'`----'`-'  `---' `-' `----'`-'`-'`---'
+.______     ______    __      .______    _______ .___________. ______   .__   __.  _______
+|   _  \   /  __  \  |  |     |   _  \  |   ____||           |/  __  \  |  \ |  | |   ____|
+|  |_)  | |  |  |  | |  |     |  |_)  | |  |__   `---|  |----|  |  |  | |   \|  | |  |__
+|   ___/  |  |  |  | |  |     |   ___/  |   __|      |  |    |  |  |  | |  . `  | |   __|
+|  |      |  `--'  | |  `----.|  |      |  |____     |  |    |  `--'  | |  |\   | |  |____
+| _|       \______/  |_______|| _|      |_______|    |__|     \______/  |__| \__| |_______|
+                                                                                                                                                                                            
 
 Neo4j_csv_importer
 
@@ -21,6 +25,7 @@ How:
 
 Import of Nodes:
 - header of csv file are node properties
+- Notice: at the moment there must be one property called name (on header column)
 
 Import of Relationships
 - header must have following format: source.name,source.label,relationship,destination.name,destination.label
@@ -47,7 +52,11 @@ $ python neo4j_csv_importer.py <node_dir> <relationship_dir>
     OR
     relative/path/relationship_data
 
-
+Example:
+- there are a small sample set of csv data in test_data
+-> python neo4j_csv_importer.py test_data/csv_nodes test_data/csv_relationships
+this will create a some city and person nodes and creates LIVE_IN relationship between them
+- open localhost:7474 (default config of neo4j) and watch the result
 
 
 
