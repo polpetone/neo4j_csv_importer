@@ -1,0 +1,4 @@
+source.name,source.label,relationship,destination.name,destination.label
+Mouse,person,LIVES_IN,Berlin,city
+Duck,person,LIVES_IN,Entenhausen,city
+Snowden,person,LIVES_IN,Moskau,city
